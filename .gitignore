@@ -21,3 +21,4 @@ npm-debug.log*
 /.sourcemaps
 /.vscode
 /node_modules
+database.json

@@ -25,14 +25,8 @@ You have to install project dependencies by executing in the project folder :
 > or
 > `npm install --force`
 
-##### Generate the database data in your local environment
-
-You can do that by executing in the project folder :
-
-> `json-server generate-data.js`
-
 ##### Run application on your local environment
 
 You can do that by executing in the project folder :
 
-> `json-server --watch database.json`
+> `npm run serve`

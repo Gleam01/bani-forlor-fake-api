@@ -64,9 +64,9 @@ function generateData() {
     });
   }
 
-  const patients_hospitals = [];
+  const patient_hospital = [];
   for (let i = 0; i < 100; i++) {
-    patients_hospitals.push({
+    patient_hospital.push({
       id: faker.datatype.uuid(),
       patientId: patients[Math.floor(i)].id,
       hospitalId: hospitals[Math.floor(i / 10)].id,
@@ -101,9 +101,9 @@ function generateData() {
     });
   }
 
-  const nurses_hospitals = [];
+  const nurse_hospital = [];
   for (let i = 0; i < 100; i++) {
-    nurses_hospitals.push({
+    nurse_hospital.push({
       id: faker.datatype.uuid(),
       nurseId: nurses[Math.floor(i)].id,
       hospitalId: hospitals[Math.floor(i / 10)].id,
@@ -112,9 +112,9 @@ function generateData() {
     });
   }
 
-  const patient_nurses = [];
+  const patient_nurse = [];
   for (let i = 0; i < 300; i++) {
-    patient_nurses.push({
+    patient_nurse.push({
       id: faker.datatype.uuid(),
       nurseId: nurses[Math.floor(i / 3)].id,
       patientId: patients[Math.floor(i / 3)].id,
@@ -159,9 +159,9 @@ function generateData() {
     });
   }
 
-  const doctors_hospitals = [];
+  const doctor_hospital = [];
   for (let i = 0; i < 100; i++) {
-    doctors_hospitals.push({
+    doctor_hospital.push({
       id: faker.datatype.uuid(),
       doctorId: doctors[Math.floor(i)].id,
       hospitalId: hospitals[Math.floor(i / 10)].id,
@@ -170,9 +170,9 @@ function generateData() {
     });
   }
 
-  const doctors_specialties = [];
+  const doctor_specialty = [];
   for (let i = 0; i < 100; i++) {
-    doctors_specialties.push({
+    doctor_specialty.push({
       id: faker.datatype.uuid(),
       doctorId: doctors[Math.floor(i / 10)].id,
       specialtyId: specialties[Math.floor(i / 10)].id,
@@ -181,9 +181,9 @@ function generateData() {
     });
   }
 
-  const patient_doctors = [];
+  const patient_doctor = [];
   for (let i = 0; i < 300; i++) {
-    patient_doctors.push({
+    patient_doctor.push({
       id: faker.datatype.uuid(),
       doctorId: doctors[Math.floor(i / 3)].id,
       patientId: patients[Math.floor(i / 3)].id,
@@ -202,21 +202,39 @@ function generateData() {
     });
   }
 
+  const patient_disease = [];
+  for (let i = 0; i < 300; i++) {
+    patient_disease.push({
+      id: faker.datatype.uuid(),
+      starterDate: faker.date.past(),
+      isCurrent: faker.datatype.boolean(),
+      endDate: this.isCurrent ? null : faker.date.recent(),
+      comment: faker.lorem.paragraphs(3),
+      patientId: patients[Math.floor(i / 3)].id,
+      diseaseId: diseases[Math.floor(i / 3)].id,
+      doctorId: doctors[Math.floor(i / 3)].id,
+      nurseId: nurses[Math.floor(i / 3)].id,
+      created_at: faker.date.recent(),
+      updated_at: faker.date.recent(),
+    });
+  }
+
   return {
     adresses,
     hospitals,
     services,
     patients,
-    patients_hospitals,
+    patient_hospital,
     nurses,
-    nurses_hospitals,
+    nurse_hospital,
     specialties,
     doctors,
-    doctors_hospitals,
-    doctors_specialties,
-    patient_nurses,
-    patient_doctors,
+    doctor_hospital,
+    doctor_specialty,
+    patient_nurse,
+    patient_doctor,
     diseases,
+    patient_disease
   };
 }
 

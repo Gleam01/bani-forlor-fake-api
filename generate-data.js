@@ -1,5 +1,6 @@
 const { faker } = require("@faker-js/faker");
 const fs = require("fs");
+const slugify = require('slugify');
 
 function generateData() {
   const adresses = [];
@@ -44,6 +45,19 @@ function generateData() {
     });
   }
 
+  const definedRoles = ["Patient", "Docteur", "Infirmier", "Agent médico-technique", "Administrateur", "Responsable d'hôpital"];
+  const roles = [];
+  for (let i = 0; i < 6; i++) {
+    roles.push({
+      id: faker.datatype.uuid(),
+      name: definedRoles[i],
+      slug: slugify(definedRoles[i]),
+      created_at: faker.date.recent(),
+      updated_at: faker.date.recent(),
+    });
+  }
+
+
   const patients = [];
   for (let i = 0; i < 100; i++) {
     patients.push({
@@ -59,6 +73,7 @@ function generateData() {
       email: faker.internet.email(),
       password: "password",
       adressId: adresses[Math.floor(i / 10)].id,
+      roleId: roles[0],
       created_at: faker.date.recent(),
       updated_at: faker.date.recent(),
     });
@@ -96,6 +111,7 @@ function generateData() {
       email: faker.internet.email(),
       password: "password",
       adressId: adresses[Math.floor(i / 10)].id,
+      roleId: roles[2],
       created_at: faker.date.recent(),
       updated_at: faker.date.recent(),
     });
@@ -154,6 +170,7 @@ function generateData() {
       email: faker.internet.email(),
       password: "password",
       adressId: adresses[Math.floor(i / 10)].id,
+      roleId: roles[1],
       created_at: faker.date.recent(),
       updated_at: faker.date.recent(),
     });
@@ -223,6 +240,7 @@ function generateData() {
     adresses,
     hospitals,
     services,
+    roles,
     patients,
     patient_hospital,
     nurses,

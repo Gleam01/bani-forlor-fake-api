@@ -1,4 +1,9 @@
 {
+  "name": "bani-forlor-fake-api",
+  "main": "server.js",
+  "scripts": {
+    "serve": "node server.js"
+  },
   "dependencies": {
     "@faker-js/faker": "^7.6.0"
   }

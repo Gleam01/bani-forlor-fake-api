@@ -233,7 +233,7 @@ function generateData() {
       starterDate: faker.date.past(),
       isCurrent: faker.datatype.boolean(),
       endDate: this.isCurrent ? null : faker.date.recent(),
-      comment: faker.lorem.paragraphs(3),
+      comments: faker.lorem.paragraphs(3),
       patientId: patients[Math.floor(i / 3)].id,
       diseaseId: diseases[Math.floor(i / 3)].id,
       doctorId: doctors[Math.floor(i / 3)].id,

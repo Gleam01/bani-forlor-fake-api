@@ -1,12 +1,11 @@
 const { faker } = require("@faker-js/faker");
-const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 
 function generateDiseases() {
   const diseases = [];
   for (let id = 0; id < 100; id++) {
     diseases.push({
-      id: uuidv4(),
+      id: faker.datatype.uuid(),
       name: faker.name.jobTitle(),
     });
   }

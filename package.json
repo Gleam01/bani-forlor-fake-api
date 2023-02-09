@@ -5,7 +5,6 @@
     "serve": "node generate-data.js && json-server --watch database.json --port=3000"
   },
   "dependencies": {
-    "@faker-js/faker": "^7.6.0",
-    "uuid": "^9.0.0"
+    "@faker-js/faker": "^7.6.0"
   }
 }
